@@ -2,7 +2,9 @@ next book : https://nextjs.org/learn/dashboard-app
 
 next learning : https://nextjs.org/learn/dashboard-app
 
-Overview
+next-learn repo (for mockdata or json) : https://github.com/vercel/next-learn/tree/main/dashboard/starter-example
+
+# Overview
 
 Here's an overview of features you'll learn about in this course:
 
@@ -29,7 +31,7 @@ Here's an overview of features you'll learn about in this course:
 
 ```
 
-Folder structure
+# Folder structure
 
 You'll notice that the project has the following folder structure:
 
@@ -44,6 +46,11 @@ You'll notice that the project has the following folder structure:
 
 - Config Files: You'll also notice config files such as next.config.ts at the root of your application.
   Most of these files are created and pre-configured when you start a new project using create-next-app. You will not need to modify them in this course.
-
-
 ```
+
+### Placeholder data
+
+When you're building user interfaces, it helps to have some placeholder data. If a database or API is not yet available, you can:
+
+Use placeholder data in JSON format or as JavaScript objects.
+Use a 3rd party service like mockAPI.
