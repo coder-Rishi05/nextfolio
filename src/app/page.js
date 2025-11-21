@@ -4,9 +4,7 @@ export default function Home() {
   return (
     <div className=" w-full ">
       <Nav />
-      <main className="w-full flex  px-40 ">
-        <Profile />
-      </main>
+      <Profile />
     </div>
   );
 }

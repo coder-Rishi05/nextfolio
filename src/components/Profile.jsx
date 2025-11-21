@@ -2,8 +2,8 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <div className="about w-full  flex item-end flex-col gap-10 ">
-      <h1 className="fontSt text-7xl  tracking-tight px-80 text-start font-extrabold  ">
+    <div className="about w-full bg-yellow-400 flex item-end flex-col gap-10 ">
+      <h1 className="fontSt text-7xl sm:px-10  tracking-tight lg:px-80 text-start font-extrabold  ">
         Welcome
       </h1>
       <div className="para py-10 w-full px-80 flex item-center flex-col justify-center ">
