@@ -4,7 +4,7 @@ import { FiMoon } from "react-icons/fi";
 
 const Nav = () => {
   return (
-    <header className="w-full py-3 px-5 bg-yellow-200">
+    <header className="w-full py-3 px-10">
       <nav className="w-full flex items-center justify-between lg:justify-around">
         {/* Logo */}
         <div className="w-24 sm:w-32 lg:w-40">
