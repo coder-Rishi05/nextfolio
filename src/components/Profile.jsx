@@ -2,30 +2,33 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <div className="about w-full bg-yellow-400 flex item-end flex-col gap-10 ">
-      <h1 className="fontSt text-7xl sm:px-10  tracking-tight lg:px-80 text-start font-extrabold  ">
-        Welcome
+    <div className="about w-full bg-yellow-400 flex items-center justify-center flex-col gap-8 py-12">
+      <h1 className="fontSt text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-center font-extrabold">
+        <span className="inline-block transition-transform duration-300 transform hover:scale-105 hover:text-gray-800">
+          Welcome
+        </span>
       </h1>
-      <div className="para py-10 w-full px-80 flex item-center flex-col justify-center ">
-        <p className="text-lg py-2 font-normal font-mono">
-          Hi, I'm ऋषिः ( ऋषभः • २. ) — a web designer a and developer. I create
-          websites not just do the work but to make it an unforgatable
+
+      <div className="para w-full px-4 sm:px-10 md:px-20 lg:px-40 xl:px-80 flex items-center flex-col justify-center max-w-4xl text-center">
+        <p className="text-lg py-2 font-normal font-mono leading-relaxed">
+          Hi, I'm ऋषिः ( ऋषभः • २. ) — a web designer and developer. I create
+          websites not just to do the work but to make it an unforgettable
           experience.
         </p>
-        <p className="text-lg py-2 font-normal font-mono">
-          Currently i am in 3rd year of my collage and studying
-          <span>BCA-III.</span>
-          learning creative and Backend development.
+
+        <p className="text-lg py-2 font-normal font-mono leading-relaxed">
+          Currently I'm in the 3rd year of my college studying
+          <span className="font-semibold"> BCA-III</span> and learning creative
+          and backend development.
         </p>
 
-        <p className="text-lg py-2 font-normal font-mono">
-          Outside of work, you’ll find me reading books like Power, Influence
-          and other psychological and fictional.
+        <p className="text-lg py-2 font-normal font-mono leading-relaxed">
+          Outside of work, you’ll find me reading books about power, influence,
+          psychology, and fiction.
         </p>
 
-        <p className="text-lg py-2 font-normal font-mono">
-          {" "}
-          Welcome to my website, feel free to experience it....
+        <p className="text-lg py-2 font-normal font-mono leading-relaxed">
+          Welcome to my website — feel free to explore.
         </p>
       </div>
     </div>
