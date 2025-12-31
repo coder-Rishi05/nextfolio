@@ -1,11 +1,11 @@
 import React from "react";
 
-const Profile = () => {
+const Projects = () => {
   return (
-    <div className="about w-full h-screen flex items-center justify-center flex-col gap-8 py-12">
-      <h1 className="fontSt text-4xl sm:text-5xl md:text-6xl cursor-pointer  lg:text-7xl tracking-tight text-center font-extrabold">
-        <span className="inline-block transition-transform  duration-300 transform hover:scale-105 hover:text-white/80">
-          Welcome
+    <div className="about w-full h-screen flex items-center  flex-col gap-8 py-12">
+      <h1 className=" text-4xl sm:text-5xl md:text-6xl cursor-pointer bg-amber-200  lg:text-7xl tracking-tight  font-extrabold">
+        <span className="inline-block transition-transform  duration-300  transform hover:scale-105 hover:text-white/80">
+          Projects
         </span>
       </h1>
 
@@ -35,4 +35,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Projects;
