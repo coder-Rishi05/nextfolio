@@ -33,23 +33,23 @@ const Nav = () => {
           className="check"
         >
           {active ? (
-            <button className="p-1.5 sm:p-2 rounded-md cursor-pointer  transition-colors">
+            <div className="p-1.5 sm:p-2 rounded-md cursor-pointer  transition-colors">
               <FiMoon
                 size={20}
                 className={`sm:w-6 sm:h-6 ${
                   active ? "text-red-900" : "text-white"
                 }`}
               />
-            </button>
+            </div>
           ) : (
-            <button className="p-1.5 sm:p-2 rounded-md cursor-pointer  transition-colors">
+            <div className="p-1.5 sm:p-2 rounded-md cursor-pointer  transition-colors">
               <FiSun
                 size={20}
                 className={`sm:w-6 sm:h-6 ${
                   active ? "text-gray-900" : "text-white"
                 }`}
               />
-            </button>
+            </div>
           )}
         </button>
       </nav>

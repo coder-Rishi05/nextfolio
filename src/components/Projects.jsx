@@ -2,12 +2,12 @@ import React from "react";
 
 const Projects = () => {
   return (
-    <div className="about w-full h-screen flex items-center  flex-col gap-8 py-12">
-      <h1 className=" text-4xl sm:text-5xl md:text-6xl cursor-pointer bg-amber-200  lg:text-7xl tracking-tight  font-extrabold">
-        <span className="inline-block transition-transform  duration-300  transform hover:scale-105 hover:text-white/80">
+    <div className=" w-full  bg-red-400 border-t-2 border-amber-50  h-screen flex items-center  flex-col  gap-8 py-12">
+      <div className="w-1/2 pt-10 ">
+        <h1 className=" text-4xl sm:text-5xl md:text-6xl cursor-pointer   lg:text-7xl tracking-tight  font-extrabold">
           Projects
-        </span>
-      </h1>
+        </h1>
+      </div>
 
       <div className="para w-1/2 px-4  sm:px-10 md:px-20 lg:px-40 xl:px-80 flex items-center flex-col justify-center max-w-4xl ">
         <p className="text-sm sm:text-base md:text-xl lg:text-[18px] py-2 font-normal font-mono leading-relaxed">
