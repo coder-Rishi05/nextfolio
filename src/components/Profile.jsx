@@ -3,8 +3,8 @@ import React from "react";
 const Profile = () => {
   return (
     <div className="about w-full flex items-center justify-center flex-col gap-8 py-12">
-      <h1 className="fontSt text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-center font-extrabold">
-        <span className="inline-block transition-transform duration-300 transform hover:scale-105 hover:text-gray-800">
+      <h1 className="fontSt text-4xl sm:text-5xl md:text-6xl cursor-pointer  lg:text-7xl tracking-tight text-center font-extrabold">
+        <span className="inline-block transition-transform  duration-300 transform hover:scale-105 hover:text-white/80">
           Welcome
         </span>
       </h1>
