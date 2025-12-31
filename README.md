@@ -1,3 +1,3 @@
 # Nextfolio
 
-my personal portfolio site in next js
+A protfolio design in next js only.
