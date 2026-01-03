@@ -8,7 +8,9 @@ const Social = () => {
   return (
     <div className="h-screen flex items-center justify-center flex-col border-t-2 border-amber-50 ">
       <div className="w-1/2  ">
-        <h1 className="text-5xl tracking-tighter font-extrabold ">Stay In touch</h1>
+        <h1 className="text-5xl tracking-tighter font-extrabold ">
+          Stay In touch
+        </h1>
       </div>
       <div className="flex py-10 flex-col items-start ">
         <p className="pt-4 pb-2 flex items-center gap-4 text-xl ">
@@ -23,19 +25,21 @@ const Social = () => {
           or...
         </p>
         <p className="py-3 flex items-center gap-4 text-xl">
+          <FaLinkedinIn />
           if want to see my progress or want to connect on{" "}
-          <span className="underline">
+          <span className=" underline cursor-pointer hover:text-green-400 transition-all duration-700 hover:scale-[1.05]">
             <a href="https://www.linkedin.com/in/rawatrishi3/" target="blank">
               {" "}
-              <FaLinkedinIn />{" "}
+              LinkedIn
             </a>
           </span>
         </p>
         <p className="py-3 flex items-center gap-4 text-xl">
-          Follow on{" "}
-          <span>
+          <FaGithub />
+          can follow on{" "}
+          <span className="cursor-pointer hover:text-green-400 transition-all duration-500 hover:underline">
             <a href="https://github.com/coder-Rishi05" target="_blank">
-              <FaGithub />
+              Github
             </a>
           </span>{" "}
           if want to create something together...{" "}
