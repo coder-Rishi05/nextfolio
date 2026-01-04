@@ -17,7 +17,7 @@ const Social = () => {
           <span>
             <FaInstagram />
           </span>
-          Social media never used cause not worth of my time, so...
+          Social media never used cause could'nt find reason, so...
         </p>
         <p className="py-3 flex items-center gap-4 text-xl">
           <MdOutlineMail />
@@ -44,6 +44,17 @@ const Social = () => {
           </span>{" "}
           if want to create something together...{" "}
         </p>
+        <div className="details flex justify-between gap-20 px-20 py-10">
+          <input
+            className="w-60 px-4 py-2 border-2  placeholder:text-sm rouned text-sm border-zinc-300 focus:border-zinc-50 "
+            type="text"
+            placeholder="Enter your name"
+          />
+          <button className="px-4 bg-white rounded cursor-pointer text-zinc-800 ">
+            {" "}
+            Submit{" "}
+          </button>
+        </div>
       </div>
     </div>
   );

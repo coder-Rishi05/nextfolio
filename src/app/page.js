@@ -5,6 +5,8 @@ import Nav from "../components/Nav.jsx";
 import Social from "../components/Social.jsx";
 
 import Projects from "../components/Projects";
+import Personal from "../components/Personal";
+
 export default function Home() {
   return (
     <div className=" w-full">
@@ -13,6 +15,7 @@ export default function Home() {
       <Profile />
       <Projects />
       <Social />
+      <Personal />
     </div>
   );
 }
