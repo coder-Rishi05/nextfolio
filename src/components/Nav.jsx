@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { FiMoon } from "react-icons/fi";
 import { FiSunrise, FiSun } from "react-icons/fi";
+import Navbar from "../components/navs/Navbar";
 
 const Nav = () => {
   const [active, setActive] = useState(false);
@@ -53,6 +54,7 @@ const Nav = () => {
           )}
         </button>
       </nav>
+      <Navbar />
     </header>
   );
 };
