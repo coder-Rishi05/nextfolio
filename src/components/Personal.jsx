@@ -7,7 +7,7 @@ const Personal = () => {
         <h1 className="text-5xl font-serif py-10  tracking-tighter font-extrabold ">
           Books i read a lot.
         </h1>
-        <div className="books flex flex-col gap-10  ">
+        <div className="books px-10 flex flex-col gap-10  ">
           <div className="book1  flex items-center justify-center gap-10">
             <div className="left">
               <img
