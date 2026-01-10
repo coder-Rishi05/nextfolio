@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="flex items-center justify-center border border-amber-50 gap-16">
@@ -14,9 +14,9 @@ const Navbar = () => {
         </a>
       </li>
       <li className="list-none border-r-2 border-amber-50 px-4  py-4  ">
-        <a className="font-normal uppercase text-lg" href="">
+        <Link className="font-normal uppercase text-lg" href={"/blog"}>
           Blogs
-        </a>
+        </Link>
       </li>
       <li className="list-none border-r-2 border-amber-50 px-4  py-4  ">
         <a className="font-normal uppercase text-lg" href="">

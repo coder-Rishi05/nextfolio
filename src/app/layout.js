@@ -1,6 +1,22 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Poppins,
+  Cormorant_Garamond,
+} from "next/font/google";
 import "./globals.css";
 
+const cormorantgaramond = Geist({
+  variable: "--font-cormorant-garamond",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const poppins = Geist({
+  variable: "--font-poppins",
+  weight: ["400", "600"],
+  subsets: ["latin"],
+});
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,7 +36,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${cormorantgaramond.variable} ${poppins
+          .variable} antialiased`}
       >
         {children}
       </body>
