@@ -1,38 +1,50 @@
 import React from "react";
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
+
+const navItem = {
+  hidden: { opacity: 0, y: -10 },
+  show: { opacity: 1, y: 0 },
+};
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-center border border-amber-50 gap-16">
-      <motion.li
-        whileHover={{ x: 100 }}
-        className="list-none border-r-2  border-amber-50 px-4  py-4  "
-      >
-        <a className="font-normal uppercase text-lg" href="">
-          Skills
-        </a>
-      </motion.li>
-      <li className="list-none border-r-2 border-amber-50 px-4  py-4  ">
-        <a
-          whileHover={{ scale: 1.1 }}
-          className="font-normal uppercase text-lg"
-          href=""
+    <motion.ul
+      initial="hidden"
+      animate="show"
+      transition={{ staggerChildren: 0.12 }}
+      className="flex items-center justify-center gap-14"
+    >
+      {[
+        { label: "Skills", href: "#skills" },
+        { label: "Projects", href: "#projects" },
+        { label: "Blogs", href: "/blog" },
+        { label: "Contact", href: "#contact" },
+      ].map((item) => (
+        <motion.li
+          key={item.label}
+          variants={navItem}
+          className="list-none relative"
+          whileHover="hover"
         >
-          Projects
-        </a>
-      </li>
-      <li className="list-none border-r-2 border-amber-50 px-4  py-4  ">
-        <Link className="font-normal uppercase text-lg" href={"/blog"}>
-          Blogs
-        </Link>
-      </li>
-      <li className="list-none border-r-2 border-amber-50 px-4  py-4  ">
-        <a className="font-normal uppercase text-lg" href="">
-          Contact
-        </a>
-      </li>
-    </div>
+          <Link
+            href={item.href}
+            className="uppercase text-sm tracking-widest font-mono text-white/80 hover:text-white transition-colors"
+          >
+            {item.label}
+          </Link>
+
+          {/* Underline */}
+          <motion.span
+            className="absolute left-0 -bottom-1 h-px w-full bg-amber-50"
+            initial={{ scaleX: 0 }}
+            whileHover={{ scaleX: 1 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            style={{ originX: 0 }}
+          />
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 

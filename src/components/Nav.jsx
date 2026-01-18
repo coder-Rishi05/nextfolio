@@ -1,61 +1,65 @@
-// "use client"
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { FiMoon } from "react-icons/fi";
-import { FiSunrise, FiSun } from "react-icons/fi";
+import { FiMoon, FiSun } from "react-icons/fi";
+import { motion } from "framer-motion";
 import Navbar from "../components/navs/Navbar";
 
 const Nav = () => {
-  const [active, setActive] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  // Apply theme to body
+  useEffect(() => {
+    document.documentElement.classList.toggle("light", !isDark);
+  }, [isDark]);
 
   return (
-    <header className="w-full  py-2 px-4 sm:py-3 sm:px-6 md:px-10">
-      <nav className="w-full flex  items-center justify-center">
+    <motion.header
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full px-6 sm:px-10 py-4 border-b border-white/10"
+    >
+      <nav className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="left w-1/2 h-1/2  ">
-          {/* <div className="w-20 sm:w-24 bg-green-400 md:w-32 lg:w-40"> */}
-          <div className="  w-60">
-            <Image
-              src="/logo-removebg-preview.png"
-              alt="logo"
-              width={200}
-              height={80}
-              className="object-contain w-full h-auto"
-            />
-          </div>
+        <div className="flex items-center">
+          <Image
+            src="/logo-removebg-preview.png"
+            alt="Rishi logo"
+            width={140}
+            height={40}
+            className="object-contain"
+            priority
+          />
         </div>
 
-        {/* Moon Icon */}
-        <button
-          onClick={() => {
-            setActive((val) => !val);
-          }}
-          className="check"
+        {/* Center Navigation */}
+        <div className="hidden md:flex">
+          <Navbar />
+        </div>
+
+        {/* Theme Toggle */}
+        <motion.button
+          whileHover={{ rotate: 15 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setIsDark((prev) => !prev)}
+          className="p-2 rounded-full border border-white/20 hover:border-white/40 transition-colors"
+          aria-label="Toggle theme"
         >
-          {active ? (
-            <div className="p-1.5 sm:p-2 rounded-md cursor-pointer  transition-colors">
-              <FiMoon
-                size={20}
-                className={`sm:w-6 sm:h-6 ${
-                  active ? "text-red-900" : "text-white"
-                }`}
-              />
-            </div>
+          {isDark ? (
+            <FiSun className="w-5 h-5 text-white/80" />
           ) : (
-            <div className="p-1.5 sm:p-2 rounded-md cursor-pointer  transition-colors">
-              <FiSun
-                size={20}
-                className={`sm:w-6 sm:h-6 ${
-                  active ? "text-gray-900" : "text-white"
-                }`}
-              />
-            </div>
+            <FiMoon className="w-5 h-5 text-white/80" />
           )}
-        </button>
+        </motion.button>
       </nav>
-      <Navbar />
-    </header>
+
+      {/* Mobile Navbar */}
+      <div className="mt-4 md:hidden">
+        <Navbar />
+      </div>
+    </motion.header>
   );
 };
 
