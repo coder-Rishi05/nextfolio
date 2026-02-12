@@ -2,7 +2,7 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <section className="w-full min-h-[90vh] border-b border-amber-200 flex flex-col items-center pt-28 pb-20">
+    <section className="w-full min-h-[80vh] border-b border-amber-200 flex flex-col items-center pt-28 pb-20">
       {/* Intro Label */}
       <div className="mb-6">
         <p className="text-xs sm:text-sm font-mono tracking-widest uppercase text-white/60">
@@ -20,9 +20,9 @@ const Profile = () => {
       {/* Statement */}
       <div className="w-full max-w-3xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col gap-6 text-center">
         <p className="text-sm sm:text-base md:text-lg font-mono leading-relaxed text-white/90">
-          Hi, I'm ऋषिः ( ऋषभः • २. ) — a web designer and developer. I create
-          websites not just to function, but to feel calm, intentional, and
-          unforgettable.
+          Hi, I&apos;m ऋषिः ( ऋषभः • २. ) — a web designer and developer. I
+          create websites not just to function, but to feel calm, intentional,
+          and unforgettable.
         </p>
 
         <p className="text-sm sm:text-base md:text-lg font-mono leading-relaxed text-white/80">
