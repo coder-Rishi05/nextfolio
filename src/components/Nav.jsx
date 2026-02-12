@@ -35,7 +35,7 @@ const Nav = () => {
         </div>
 
         {/* Center Navigation */}
-        <div className="hidden md:flex">
+        <div className=" flex">
           <Navbar />
         </div>
 

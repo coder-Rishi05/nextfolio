@@ -24,7 +24,7 @@ const Navbar = () => {
         <motion.li
           key={item.label}
           variants={navItem}
-          className="list-none relative"
+          className="list-none relative border-t-4 font-bold border-b-4 hover:border-l-4 rounded transition-all duration-750  border-amber-100 px-2 "
           whileHover="hover"
         >
           <Link

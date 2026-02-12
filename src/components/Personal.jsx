@@ -44,7 +44,7 @@ const Personal = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center border-t border-zinc-800 bg-gradient-to-b  py-20">
+    <section className="flex flex-col items-center border-t border-zinc-800 bg-linear-to-b  py-20">
       <div className="w-full max-w-5xl px-6">
         <h1 className="text-4xl md:text-5xl font-serif font-extrabold tracking-tight text-white mb-20">
           Books I Read a Lot
