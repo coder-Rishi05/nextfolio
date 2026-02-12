@@ -3,7 +3,6 @@
 import Profile from "../components/Profile";
 import Nav from "../components/Nav.jsx";
 import Social from "../components/Social.jsx";
-
 import Projects from "../components/Projects";
 import Personal from "../components/Personal";
 
