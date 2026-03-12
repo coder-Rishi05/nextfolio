@@ -2,78 +2,139 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 const BookCard = ({ book }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <article className="group bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
-      <div className="flex flex-col md:flex-row gap-8">
-        
-        {/* Image */}
-        <div className="relative w-full md:w-1/4 h-80 rounded-xl overflow-hidden">
+    <motion.article
+      initial={{ opacity: 0, y: 32 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="group relative w-full overflow-hidden rounded-2xl border border-white/8 bg-gradient-to-br from-zinc-900 to-zinc-950"
+    >
+      {/* Ambient glow on hover */}
+      <div className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{ background: "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(250,200,50,0.06), transparent 40%)" }}
+      />
+
+      <div className="flex flex-col sm:flex-row">
+
+        {/* Book Cover — full height strip on sm+ */}
+        <div className="relative w-full sm:w-36 md:w-44 lg:w-52 shrink-0 h-56 sm:h-auto overflow-hidden rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none">
           <Image
             src={book.image}
             alt={book.title}
             fill
-            className="object-fit transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
           />
+          {/* Gradient overlay bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent sm:bg-gradient-to-r" />
+
+          {/* Status badge floating on image */}
+          <span className="absolute bottom-3 left-3 sm:hidden text-[10px] font-mono px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 text-emerald-400">
+            {book.status}
+          </span>
         </div>
 
         {/* Content */}
-        <div className="flex flex-col justify-between md:w-2/3 space-y-5">
-          
-          <div>
-            <h2 className="text-3xl font-serif font-semibold text-white tracking-tight">
-              {book.title}
-            </h2>
-            <p className="text-sm text-zinc-400 mt-1">
-              by{" "}
-              <span className="font-medium text-zinc-300">
-                {book.author}
+        <div className="flex flex-col justify-between flex-1 p-5 md:p-7 gap-4">
+
+          {/* Top: Title + Meta */}
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <div>
+                <h2 className="text-xl md:text-2xl font-serif font-semibold text-white leading-snug tracking-tight">
+                  {book.title}
+                </h2>
+                <p className="text-xs text-zinc-500 mt-1 font-mono tracking-wide">
+                  by <span className="text-zinc-300">{book.author}</span>
+                </p>
+              </div>
+
+              {/* Badges — hidden on mobile (shown on image), visible sm+ */}
+              <div className="hidden sm:flex items-center gap-2 flex-wrap">
+                <span className="text-[10px] px-2.5 py-1 bg-yellow-400/15 text-yellow-300 rounded-full font-mono border border-yellow-400/20">
+                  {book.reads}
+                </span>
+                <span className="text-[10px] px-2.5 py-1 bg-emerald-400/15 text-emerald-400 rounded-full font-mono border border-emerald-400/20">
+                  {book.status}
+                </span>
+              </div>
+            </div>
+
+            {/* Mobile badges row */}
+            <div className="flex sm:hidden items-center gap-2 flex-wrap">
+              <span className="text-[10px] px-2.5 py-1 bg-yellow-400/15 text-yellow-300 rounded-full font-mono border border-yellow-400/20">
+                {book.reads}
               </span>
+            </div>
+
+            <p className="text-sm text-zinc-400 leading-relaxed line-clamp-3">
+              {book.description}
             </p>
           </div>
 
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="text-xs px-3 py-1 bg-yellow-400/20 text-yellow-300 rounded-full font-medium">
-              {book.reads}
-            </span>
+          {/* Expanded section */}
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
+                <div className="pt-4 border-t border-white/8 space-y-3">
+                  <div className="flex gap-2">
+                    <span className="mt-0.5 shrink-0 w-1 h-1 rounded-full bg-amber-300 self-start mt-2" />
+                    <p className="text-xs text-zinc-400 leading-relaxed">
+                      <span className="text-zinc-500 font-mono mr-1">Takeaway →</span>
+                      {book.keyTakeaway}
+                    </p>
+                  </div>
 
-            <span className="text-xs px-3 py-1 bg-emerald-400/20 text-emerald-300 rounded-full">
-              {book.status}
-            </span>
+                  {book.favorite && (
+                    <div className="flex gap-2">
+                      <span className="mt-0.5 shrink-0 w-1 h-1 rounded-full bg-amber-300 self-start mt-2" />
+                      <p className="text-xs text-zinc-400 leading-relaxed">
+                        <span className="text-zinc-500 font-mono mr-1">Favorite →</span>
+                        {book.favorite}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Footer: CTA */}
+          <div className="flex items-center justify-between pt-2 border-t border-white/6">
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="group/btn flex items-center gap-1.5 text-xs font-mono text-zinc-500 hover:text-amber-300 transition-colors duration-200 cursor-pointer"
+            >
+              <motion.span
+                animate={{ rotate: expanded ? 45 : 0 }}
+                transition={{ duration: 0.25 }}
+                className="inline-block text-amber-400"
+              >
+                +
+              </motion.span>
+              {expanded ? "Show less" : "Explore notes"}
+            </button>
+
+            {/* Decorative page count or genre tag */}
+            {book.genre && (
+              <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
+                {book.genre}
+              </span>
+            )}
           </div>
-
-          <p className="text-zinc-300 leading-relaxed text-sm md:text-base">
-            {book.description}
-          </p>
-
-          {expanded && (
-            <div className="space-y-2 text-sm text-zinc-400 border-t border-zinc-800 pt-4">
-              <p>
-                <span className="text-zinc-500">Key Takeaway:</span>{" "}
-                {book.keyTakeaway}
-              </p>
-
-              {book.favorite && (
-                <p>
-                  <span className="text-zinc-500">Favorite Concept:</span>{" "}
-                  {book.favorite}
-                </p>
-              )}
-            </div>
-          )}
-
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="text-sm hover:cursor-pointer text-yellow-400 hover:text-yellow-300 transition font-medium self-start"
-          >
-            {expanded ? "Show Less" : "Show More"}
-          </button>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
