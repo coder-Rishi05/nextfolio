@@ -10,8 +10,6 @@ const HomePage = () => {
         </header>
           <h2 className="font-bold text-center text-4xl">Work in progress...</h2>
         <section className="md:grid md:grid-cols-2 flex justify-center items-center flex-col gap-10">
-          {/* <h1></h1> */}
-          {/* <h2 className="font-bold text-4xl">This in Javascript</h2> */}
         </section>
       </section>
     </div>
