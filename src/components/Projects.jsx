@@ -11,7 +11,7 @@ const projectsData = [
     role: "Full Stack · Personal",
     year: "2024",
     tags: ["React", "Node.js", "MongoDB", "JWT"],
-    link: "#",
+    link: "https://url-frontend-fhzz.onrender.com",
     description:
       "A full-stack URL shortener with JWT auth via httpOnly cookies, credit-based throttling, and an admin panel — deployed on Render.",
     highlights: [
@@ -27,7 +27,7 @@ const projectsData = [
     role: "Full Stack · Collaborative Study Platform",
     year: "2024",
     tags: ["React.js", "Node.js", "MongoDB Atlas", "Multer"],
-    link: "#",
+    link: "https://notesspherestu.onrender.com/",
     description:
       "A collaborative study platform with role-based dashboards, file uploads, JWT auth, and a responsive UI.",
     highlights: [
@@ -120,7 +120,7 @@ const ProjectCard = ({ project, index }) => {
               <a
                 href={project.link}
                 target="_blank"
-                rel="noopener noreferrer"
+               
                 className="inline-flex items-center gap-2 text-xs font-mono text-amber-300 border border-amber-300/30 px-4 py-2 rounded-full hover:bg-amber-300/10 transition"
               >
                 <FaExternalLinkAlt className="w-3 h-3" />
@@ -136,8 +136,11 @@ const ProjectCard = ({ project, index }) => {
 
 const Projects = () => {
   return (
-    <section className="w-full flex justify-center py-20">
+    <section id="projects" className="w-full flex justify-center py-20">
       <div className="w-full max-w-4xl flex flex-col gap-4 px-5 sm:px-8">
+        <h1 className="text-5xl italic sm:text-6xl md:text-7xl font-serif font-black tracking-tight text-white leading-none">
+         Pro<span className="text-amber-300" >jects</span>
+        </h1>
         {projectsData.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}

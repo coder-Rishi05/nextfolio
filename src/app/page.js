@@ -17,7 +17,7 @@ export default function Home() {
       <SKills />
       <Projects />
       <Social />
-      <Personal />
+      {/* <Personal /> */}
       <Footer />
     </div>
   );
