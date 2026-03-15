@@ -33,6 +33,7 @@ const Footer = () => (
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
+            
             className="text-xs font-mono text-zinc-600 hover:text-amber-300 transition"
           >
             {item}

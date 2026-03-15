@@ -6,6 +6,7 @@ import Social from "../components/Social.jsx";
 import Projects from "../components/Projects";
 import Personal from "../components/Personal";
 import Footer from "../components/Footer";
+import SKills from "../components/navs/Skills";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       {/* <Nav /> */}
       <hr />
       <Profile />
-      {/* <Projects /> */}
+      <SKills />
+      <Projects />
       <Social />
       <Personal />
       <Footer />

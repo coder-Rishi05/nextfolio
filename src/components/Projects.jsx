@@ -4,46 +4,43 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-
-
-const Projects = () => {
-  const [open, setOpen] = useState(false);
-
-  
-
-  const projectsData = [
+const projectsData = [
   {
     id: 1,
-    title: "ServiceNow Studio",
-    role: "UX Architect · AI Platform",
-    year: "2023 – Present",
-    tags: ["AI/UX", "Design Systems", "MCP"],
+    title: "URL Shortener",
+    role: "Full Stack · Personal",
+    year: "2024",
+    tags: ["React", "Node.js", "MongoDB", "JWT"],
     link: "#",
     description:
-      "Designing and evangelizing unified, scalable, end-to-end platform-centric systems and product strategies across multiple tools and capabilities.",
+      "A full-stack URL shortener with JWT auth via httpOnly cookies, credit-based throttling, and an admin panel — deployed on Render.",
     highlights: [
-      "Developed prompt-to-experience tool by establishing design system ontologies integrated into MCP servers for LLM consumption.",
-      "Established foundational AI UX patterns for the platform.",
-      "Maintained and modified platform-wide navigational structures.",
-      "Supported consolidation of 50+ developer tools into ServiceNow Studio.",
+      "Engineered a credit-based throttling system using atomic MongoDB $expr updates, ensuring 100% data consistency.",
+      "Built role-based access control using layered Express middleware.",
+      "Developed an Admin Panel to manage users, URLs, and credit requests.",
+      "Supported custom aliases, URL expiry, and click tracking.",
     ],
   },
   {
     id: 2,
-    title: "Portfolio System",
-    role: "Full Stack · Personal",
+    title: "NoteSphere",
+    role: "Full Stack · Collaborative Study Platform",
     year: "2024",
-    tags: ["Next.js", "Tailwind", "Framer Motion"],
+    tags: ["React.js", "Node.js", "MongoDB Atlas", "Multer"],
     link: "#",
     description:
-      "Built a performant, intentional personal portfolio from scratch — focused on calm UX, clean architecture, and meaningful micro-interactions.",
+      "A collaborative study platform with role-based dashboards, file uploads, JWT auth, and a responsive UI.",
     highlights: [
-      "Designed a cohesive dark aesthetic with amber accents throughout.",
-      "Implemented scroll-triggered animations and staggered reveals.",
-      "Fully responsive across all screen sizes with mobile-first approach.",
+      "Architected responsive frontend using React + Tailwind + DaisyUI.",
+      "Designed Admin & User dashboards with role-based rendering.",
+      "Built file upload system using Multer.",
+      "Implemented protected routes and global state using Context API.",
     ],
   },
 ];
+
+const ProjectCard = ({ project, index }) => {
+  const [open, setOpen] = useState(false);
 
   return (
     <motion.div
@@ -90,6 +87,7 @@ const Projects = () => {
 
           <motion.div
             animate={{ rotate: open ? 45 : 0 }}
+            transition={{ duration: 0.25 }}
             className="w-7 h-7 flex items-center justify-center border border-white/12 rounded-full"
           >
             +
@@ -103,6 +101,7 @@ const Projects = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
             <div className="px-6 pb-6 pt-4 border-t border-white/6 space-y-4">
@@ -111,12 +110,13 @@ const Projects = () => {
               <ul className="space-y-2">
                 {project.highlights.map((h, i) => (
                   <li key={i} className="flex gap-3 text-sm text-zinc-500">
-                    <span className="w-1 h-1 rounded-full bg-amber-400 mt-2" />
+                    <span className="w-1 h-1 rounded-full bg-amber-400 mt-2 shrink-0" />
                     {h}
                   </li>
                 ))}
               </ul>
 
+              {/* FIXED LINK */}
               <a
                 href={project.link}
                 target="_blank"
@@ -131,6 +131,18 @@ const Projects = () => {
         )}
       </AnimatePresence>
     </motion.div>
+  );
+};
+
+const Projects = () => {
+  return (
+    <section className="w-full flex justify-center py-20">
+      <div className="w-full max-w-4xl flex flex-col gap-4 px-5 sm:px-8">
+        {projectsData.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </div>
+    </section>
   );
 };
 
