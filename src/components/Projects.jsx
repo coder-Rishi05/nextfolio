@@ -7,6 +7,22 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 const projectsData = [
   {
     id: 1,
+    title: "ResumeForge",
+    role: "Full Stack · AI Tool",
+    year: "2025",
+    tags: ["React", "Node.js", "Groq AI", "Brevo", "pdf2json"],
+    link: "https://resumeforge-1-c1t9.onrender.com/",
+    description:
+      "An AI-powered resume analyser and HR outreach tool. Upload a PDF resume, pick a job role, and get a detailed score breakdown with actionable suggestions — plus AI-written cold emails sent directly to recruiters.",
+    highlights: [
+      "Integrated Groq's LLaMA 3.3 70B model for structured resume analysis — returning per-section scores, priority-tagged suggestions, and rewrite recommendations.",
+      "Built an AI email generation pipeline that reads the resume, understands the role, and sends a personalised outreach email with PDF attachment via Brevo REST API.",
+      "Solved ES Module incompatibilities by migrating from pdf-parse to pdf2json with a safeDecode wrapper for reliable PDF text extraction.",
+      "Designed a stateless REST API with two core endpoints — no database, no auth — deployed on Render free tier.",
+    ],
+  },
+  {
+    id: 2,
     title: "URL Shortener",
     role: "Full Stack · Personal",
     year: "2024",
@@ -22,7 +38,7 @@ const projectsData = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "NoteSphere",
     role: "Full Stack · Collaborative Study Platform",
     year: "2024",
@@ -116,11 +132,10 @@ const ProjectCard = ({ project, index }) => {
                 ))}
               </ul>
 
-              {/* FIXED LINK */}
               <a
                 href={project.link}
                 target="_blank"
-               
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-mono text-amber-300 border border-amber-300/30 px-4 py-2 rounded-full hover:bg-amber-300/10 transition"
               >
                 <FaExternalLinkAlt className="w-3 h-3" />
@@ -139,7 +154,7 @@ const Projects = () => {
     <section id="projects" className="w-full flex justify-center py-20">
       <div className="w-full max-w-4xl flex flex-col gap-4 px-5 sm:px-8">
         <h1 className="text-5xl italic sm:text-6xl md:text-7xl font-serif font-black tracking-tight text-white leading-none">
-         Pro<span className="text-amber-300" >jects</span>
+          Pro<span className="text-amber-300">jects</span>
         </h1>
         {projectsData.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
